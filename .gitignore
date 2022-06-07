@@ -55,3 +55,6 @@ dkms.conf
 minilibx
 minilibx_linux
 minilibx_mac
+
+# binary
+bin
