@@ -55,6 +55,13 @@ dkms.conf
 minilibx
 minilibx_linux
 minilibx_mac
+include/mlx.h
 
-# binary
+# binary dir
 bin
+
+# object dir
+obj
+
+# library dir
+lib
