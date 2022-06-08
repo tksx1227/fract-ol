@@ -4,7 +4,6 @@ SRCDIR	:= src
 OBJDIR	:= obj
 INCDIR	:= include
 
-INCPATH	:= /usr/local/include
 MLXPATH := ./minilibx
 
 FILES	:= main.c
@@ -19,7 +18,7 @@ FRACTOL	:= $(BINDIR)/fractol
 LIBS	:= mlx Xext X11 m bsd 
 CFLAGS	:= -Wall -Wextra -Werror -MMD -MP
 
-all: $(LIBFT) $(BINDIR) $(OBJDIR) mlx $(FRACTOL)
+all: $(BINDIR) $(OBJDIR) mlx $(FRACTOL)
 
 $(NAME): all
 
@@ -38,12 +37,12 @@ $(OBJDIR):
 $(BINDIR):
 	mkdir -p $@
 
-mlx:
+mlx: $(LIBDIR)
 	@if [ ! -e $(MLXPATH) ]; then \
 		git clone https://github.com/42Paris/minilibx-linux.git $(MLXPATH) ; \
 		make -C $(MLXPATH) ; \
-		cp $(wildcard $(MLXPATH)/*.h) $(INCPATH) ; \
-		cp $(wildcard $(MLXPATH)/*.a) $(LIBDIR) ; \
+		cp $(MLXPATH)/mlx.h ./$(INCDIR)/mlx.h ; \
+		cp $(MLXPATH)/libmlx.a ./$(LIBDIR)/libmlx.a ; \
 	fi
 
 clean:
