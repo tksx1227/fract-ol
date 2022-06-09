@@ -3,21 +3,25 @@
 
 # include <stdlib.h>
 # include <stdio.h>
-# include <mlx.h>
+# include "mlx.h"
 
-typedef struct	s_data
+# define WIDTH 720
+# define HEIGHT 480
+
+typedef struct	s_img
 {
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}	t_data;
+}	t_img;
 
-typedef struct	s_vars
+typedef struct	s_canvas
 {
 	void	*mlx;
 	void	*win;
-}	t_vars;
+	t_img	*img;
+}	t_canvas;
 
 #endif
