@@ -15,11 +15,11 @@
 int	key_hook(int keycode, t_canvas *canvas)
 {
 	if (keycode == KEY_ESC)
-		destroy_canvas(canvas);
+		exit_canvas(canvas);
 	return (0);
 }
 
-void	destroy_canvas(t_canvas *canvas)
+int	exit_canvas(t_canvas *canvas)
 {
 	mlx_destroy_window(canvas->mlx, canvas->win);
 	exit(0);

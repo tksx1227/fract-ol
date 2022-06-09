@@ -51,6 +51,7 @@ enum
 
 /* Event Hooks */
 int		key_hook(int keycode, t_canvas *canvas);
+int		exit_canvas(t_canvas *canvas);
 
 /* Utils */
 void	init_canvas(t_canvas *canvas);
