@@ -53,10 +53,16 @@ enum
 int		key_hook(int keycode, t_canvas *canvas);
 int		exit_canvas(t_canvas *canvas);
 
+/* Drawer */
+void	my_mlx_pixel_put(t_canvas *canvas, int x, int y, int color);
+void	mlx_draw(t_canvas *canvas);
+
 /* Utils */
 void	init_canvas(t_canvas *canvas);
 bool	is_mandelbrot(t_comp comp);
 t_comp	init_comp(double re, double im);
+int		create_trgb(unsigned char t, unsigned char r,
+				unsigned char g, unsigned char b);
 
 /* Complex Calculator */
 t_comp	comp_mul(t_comp c1, t_comp c2);
