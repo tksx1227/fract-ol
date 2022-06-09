@@ -33,4 +33,7 @@ enum
 int		key_hook(int keycode, t_canvas *canvas);
 void	destroy_canvas(t_canvas *canvas);
 
+/* Utils */
+void	init_canvas(t_canvas *canvas);
+
 #endif
