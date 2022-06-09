@@ -24,4 +24,13 @@ typedef struct	s_canvas
 	t_img	*img;
 }	t_canvas;
 
+enum
+{
+	KEY_ESC = 65307,
+};
+
+/* Event Hooks */
+int		key_hook(int keycode, t_canvas *canvas);
+void	destroy_canvas(t_canvas *canvas);
+
 #endif
