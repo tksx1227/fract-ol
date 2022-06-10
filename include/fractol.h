@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 12:44:02 by ttomori           #+#    #+#             */
-/*   Updated: 2022/06/09 19:23:27 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/06/10 09:43:42 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define WIDTH 720
 # define HEIGHT 480
 
-typedef struct	s_img
+typedef struct s_img
 {
 	void	*img;
 	char	*addr;
@@ -31,7 +31,7 @@ typedef struct	s_img
 	int		endian;
 }	t_img;
 
-typedef struct	s_canvas
+typedef struct s_canvas
 {
 	void	*mlx;
 	void	*win;
@@ -62,7 +62,7 @@ void	init_canvas(t_canvas *canvas);
 bool	is_mandelbrot(t_comp comp);
 t_comp	init_comp(double re, double im);
 int		create_trgb(unsigned char t, unsigned char r,
-				unsigned char g, unsigned char b);
+			unsigned char g, unsigned char b);
 
 /* Complex Calculator */
 t_comp	comp_mul(t_comp c1, t_comp c2);
