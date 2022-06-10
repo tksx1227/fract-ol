@@ -12,8 +12,6 @@
 
 #include "fractol.h"
 
-static void	init_img(t_canvas *canvas);
-
 t_comp	init_comp(double re, double im)
 {
 	t_comp	comp;
@@ -46,30 +44,4 @@ int	create_trgb(unsigned char t, unsigned char r,
 	return (*(int *)(unsigned char [4]){b, g, r, t});
 }
 
-void	init_canvas(t_canvas *canvas)
-{
-	canvas->mlx = mlx_init();
-	if (canvas->mlx == NULL)
-		exit(1);
-	canvas->win = mlx_new_window(canvas->mlx, WIDTH, HEIGHT, "fract-ol");
-	if (canvas->win == NULL)
-		exit(1);
-	init_img(canvas);
-}
 
-static void	init_img(t_canvas *canvas)
-{
-	t_img	*img;
-
-	img = (t_img *)malloc(sizeof(t_img));
-	if (img == NULL)
-		exit(1);
-	img->img = mlx_new_image(canvas->mlx, WIDTH, HEIGHT);
-	if (img->img == NULL)
-		exit(1);
-	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
-			&img->line_length, &img->endian);
-	if (img->addr == NULL)
-		exit(1);
-	canvas->img = img;
-}
