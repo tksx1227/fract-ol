@@ -15,8 +15,10 @@
 
 # include <stdlib.h>
 # include <stdio.h>
+# include <limits.h>
 # include <math.h>
 # include <stdbool.h>
+# include <unistd.h>
 # include "mlx.h"
 
 # define WIDTH 720
@@ -58,6 +60,8 @@ void	my_mlx_pixel_put(t_canvas *canvas, int x, int y, int color);
 void	mlx_draw(t_canvas *canvas);
 
 /* Utils */
+void	ft_putstr_fd(char const *s, int fd);
+void	print_usage(void);
 void	init_canvas(t_canvas *canvas);
 bool	is_mandelbrot(t_comp comp);
 t_comp	init_comp(double re, double im);
