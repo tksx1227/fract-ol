@@ -12,15 +12,6 @@
 
 #include "fractol.h"
 
-t_comp	init_comp(double re, double im)
-{
-	t_comp	comp;
-
-	comp.re = re;
-	comp.im = im;
-	return (comp);
-}
-
 void	ft_putstr_fd(char const *s, int fd)
 {
 	size_t	len;

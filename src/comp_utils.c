@@ -1,16 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   comp_calc.c                                        :+:      :+:    :+:   */
+/*   comp_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 18:47:06 by ttomori           #+#    #+#             */
-/*   Updated: 2022/06/10 09:44:38 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/06/12 00:38:36 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+t_comp	init_comp(double re, double im)
+{
+	t_comp	comp;
+
+	comp.re = re;
+	comp.im = im;
+	return (comp);
+}
 
 t_comp	comp_mul(t_comp c1, t_comp c2)
 {

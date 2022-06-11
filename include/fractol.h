@@ -64,11 +64,11 @@ void	ft_putstr_fd(char const *s, int fd);
 void	print_usage(void);
 void	init_canvas(t_canvas *canvas);
 bool	is_mandelbrot(t_comp comp);
-t_comp	init_comp(double re, double im);
 int		create_trgb(unsigned char t, unsigned char r,
 			unsigned char g, unsigned char b);
 
-/* Complex Calculator */
+/* Complex Utils */
+t_comp	init_comp(double re, double im);
 t_comp	comp_mul(t_comp c1, t_comp c2);
 t_comp	comp_add(t_comp c1, t_comp c2);
 double	comp_dist(t_comp c);
