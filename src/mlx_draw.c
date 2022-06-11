@@ -37,7 +37,7 @@ void	mlx_draw(t_canvas *canvas)
 			a = 2 * x / (double)WIDTH - 1;
 			b = 2 * y / (double)HEIGHT - 1;
 			if (is_mandelbrot(init_comp(a, b)))
-				my_mlx_pixel_put(canvas, x, y, create_trgb(0, 0, 255, 255));
+				my_mlx_pixel_put(canvas, x, y, rgb2hex(0, 255, 255));
 			y++;
 		}
 		x++;

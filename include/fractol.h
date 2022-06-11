@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <stdio.h>
+# include <stdint.h>
 # include <limits.h>
 # include <math.h>
 # include <stdbool.h>
@@ -64,8 +65,7 @@ void	ft_putstr_fd(char const *s, int fd);
 void	print_usage(void);
 void	init_canvas(t_canvas *canvas);
 bool	is_mandelbrot(t_comp comp);
-int		create_trgb(unsigned char t, unsigned char r,
-			unsigned char g, unsigned char b);
+int		rgb2hex(unsigned char r, unsigned char g, unsigned char b);
 
 /* Complex Utils */
 t_comp	init_comp(double re, double im);

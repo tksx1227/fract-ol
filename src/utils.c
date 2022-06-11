@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 12:03:39 by ttomori           #+#    #+#             */
-/*   Updated: 2022/06/10 09:47:37 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/06/12 00:47:51 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,4 @@ void	print_usage(void)
 	ft_putstr_fd("The available type numbers are:\n", STDERR_FILENO);
 	ft_putstr_fd("  - 0: Julia\n", STDERR_FILENO);
 	ft_putstr_fd("  - 1: Mandelbrot\n", STDERR_FILENO);
-}
-
-int	create_trgb(unsigned char t, unsigned char r,
-				unsigned char g, unsigned char b)
-{
-	return (*(int *)(unsigned char [4]){b, g, r, t});
 }
