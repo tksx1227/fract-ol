@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 00:22:44 by ttomori           #+#    #+#             */
-/*   Updated: 2022/06/11 00:22:44 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/06/12 00:54:26 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ void	init_canvas(t_canvas *canvas)
 	if (canvas->win == NULL)
 		exit(1);
 	init_img(canvas);
+	canvas->x_max = X_MAX_LIMIT;
+	canvas->x_min = X_MIN_LIMIT;
+	canvas->y_max = Y_MAX_LIMIT;
+	canvas->y_min = Y_MIN_LIMIT;
 }
 
 static void	init_img(t_canvas *canvas)

@@ -24,6 +24,10 @@
 
 # define WIDTH 720
 # define HEIGHT 480
+# define X_MAX_LIMIT 2
+# define X_MIN_LIMIT -2
+# define Y_MAX_LIMIT 2
+# define Y_MIN_LIMIT -2
 
 typedef struct s_img
 {
@@ -39,6 +43,10 @@ typedef struct s_canvas
 	void	*mlx;
 	void	*win;
 	t_img	*img;
+	int		x_min;
+	int		x_max;
+	int		y_min;
+	int		y_max;
 }	t_canvas;
 
 typedef struct s_comp
