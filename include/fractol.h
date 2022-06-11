@@ -73,7 +73,7 @@ void	ft_putstr_fd(char const *s, int fd);
 void	print_usage(void);
 void	init_canvas(t_canvas *canvas);
 bool	is_mandelbrot(t_comp comp);
-int		rgb2hex(unsigned char r, unsigned char g, unsigned char b);
+uint32_t	rgb2hex(unsigned char r, unsigned char g, unsigned char b);
 
 /* Complex Utils */
 t_comp	init_comp(double re, double im);
