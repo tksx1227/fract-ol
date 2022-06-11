@@ -14,7 +14,7 @@
 
 static void	init_img(t_canvas *canvas);
 
-void	init_canvas(t_canvas *canvas)
+void	init_canvas(t_canvas *canvas, char fractal_type_char)
 {
 	canvas->mlx = mlx_init();
 	if (canvas->mlx == NULL)
@@ -27,6 +27,10 @@ void	init_canvas(t_canvas *canvas)
 	canvas->x_min = X_MIN_LIMIT;
 	canvas->y_max = Y_MAX_LIMIT;
 	canvas->y_min = Y_MIN_LIMIT;
+	if (fractal_type_char == '0')
+		canvas->fractal_type_num = JULIA;
+	else if (fractal_type_char == '1')
+		canvas->fractal_type_num = MANDELBROT;
 }
 
 static void	init_img(t_canvas *canvas)

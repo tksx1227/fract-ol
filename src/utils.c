@@ -37,3 +37,23 @@ void	print_usage(void)
 	ft_putstr_fd("  - 0: Julia\n", STDERR_FILENO);
 	ft_putstr_fd("  - 1: Mandelbrot\n", STDERR_FILENO);
 }
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	size_t			i;
+	unsigned char	*p1;
+	unsigned char	*p2;
+
+	if (s1 == NULL || s2 == NULL)
+		return (INT_MIN);
+	i = 0;
+	p1 = (unsigned char *)s1;
+	p2 = (unsigned char *)s2;
+	while (p1[i] != '\0' || p2[i] != '\0')
+	{
+		if (p1[i] != p2[i])
+			return (p1[i] - p2[i]);
+		i++;
+	}
+	return (0);
+}

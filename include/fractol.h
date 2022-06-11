@@ -28,6 +28,8 @@
 # define X_MIN_LIMIT -2
 # define Y_MAX_LIMIT 2
 # define Y_MIN_LIMIT -2
+# define JULIA 0
+# define MANDELBROT 1
 
 typedef struct s_img
 {
@@ -43,6 +45,7 @@ typedef struct s_canvas
 	void	*mlx;
 	void	*win;
 	t_img	*img;
+	int		fractal_type_num;
 	int		x_min;
 	int		x_max;
 	int		y_min;
@@ -69,11 +72,14 @@ void	my_mlx_pixel_put(t_canvas *canvas, int x, int y, int color);
 void	mlx_draw(t_canvas *canvas);
 
 /* Utils */
+int		ft_strcmp(const char *s1, const char *s2);
 void	ft_putstr_fd(char const *s, int fd);
 void	print_usage(void);
-void	init_canvas(t_canvas *canvas);
 bool	is_mandelbrot(t_comp comp);
 uint32_t	rgb2hex(unsigned char r, unsigned char g, unsigned char b);
+
+/* MinilibX Utils*/
+void	init_canvas(t_canvas *canvas, char fractal_type_char);
 
 /* Complex Utils */
 t_comp	init_comp(double re, double im);
