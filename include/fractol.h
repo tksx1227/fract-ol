@@ -20,6 +20,7 @@
 # include <math.h>
 # include <stdbool.h>
 # include <unistd.h>
+# include <X11/X.h>
 # include "mlx.h"
 
 # define WIDTH 720
