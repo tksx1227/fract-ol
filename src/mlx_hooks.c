@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 12:11:18 by ttomori           #+#    #+#             */
-/*   Updated: 2022/06/09 13:04:18 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/06/12 14:33:41 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ int	key_hook(int keycode, t_canvas *canvas)
 {
 	if (keycode == KEY_ESC)
 		exit_canvas(canvas);
+	else if (keycode == KEY_LEFT_ARROW || keycode == KEY_TOP_ARROW ||
+			keycode == KEY_RIGHT_ARROW || keycode == KEY_BOTTOM_ARROW)
+		update_origin(canvas, keycode);
 	return (0);
 }
 

@@ -30,6 +30,7 @@
 # define DEFAULT_Y_MIN -2
 # define JULIA 0
 # define MANDELBROT 1
+# define MOVE_RATIO 0.01
 
 typedef struct s_img
 {
@@ -66,11 +67,16 @@ typedef struct s_comp
 enum
 {
 	KEY_ESC = 65307,
+	KEY_LEFT_ARROW = 65361,
+	KEY_TOP_ARROW = 65362,
+	KEY_RIGHT_ARROW = 65363,
+	KEY_BOTTOM_ARROW = 65364,
 };
 
 /* Event Hooks */
 int		key_hook(int keycode, t_canvas *canvas);
 int		exit_canvas(t_canvas *canvas);
+void	update_origin(t_canvas *canvas, int keycode);
 
 /* Drawer */
 void	my_mlx_pixel_put(t_canvas *canvas, int x, int y, int color);
