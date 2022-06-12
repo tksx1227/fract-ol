@@ -12,6 +12,12 @@
 
 #include "fractol.h"
 
+int	exit_canvas(t_canvas *canvas)
+{
+	mlx_destroy_window(canvas->mlx, canvas->win);
+	exit(0);
+}
+
 void	update_origin(t_canvas *canvas, int keycode)
 {
 	double	delta_x;
