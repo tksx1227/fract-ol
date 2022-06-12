@@ -23,15 +23,30 @@
 # include "mlx.h"
 
 # define WIDTH 720
-# define HEIGHT 480
+# define HEIGHT 720
 # define DEFAULT_X_MAX 2
 # define DEFAULT_X_MIN -2
 # define DEFAULT_Y_MAX 2
 # define DEFAULT_Y_MIN -2
-# define JULIA 0
-# define MANDELBROT 1
 # define MOVE_RATIO 0.01
 # define ZOOM_RATIO 0.1
+
+typedef enum e_fractal
+{
+	JULIA = 0,
+	MANDELBROT = 1,
+}	t_fractal;
+
+typedef enum e_keys
+{
+	KEY_SCROLL_UP = 4,
+	KEY_SCROLL_DOWN = 5,
+	KEY_ESC = 65307,
+	KEY_LEFT_ARROW = 65361,
+	KEY_TOP_ARROW = 65362,
+	KEY_RIGHT_ARROW = 65363,
+	KEY_BOTTOM_ARROW = 65364,
+}	t_keys;
 
 typedef struct s_img
 {
@@ -50,10 +65,10 @@ typedef struct s_coodinate
 
 typedef struct s_canvas
 {
-	void	*mlx;
-	void	*win;
-	t_img	*img;
-	int		fractal_type_num;
+	void		*mlx;
+	void		*win;
+	t_img		*img;
+	t_fractal	fractal;
 	t_coodinate	origin;
 	t_coodinate	max_point;
 	t_coodinate	min_point;
@@ -64,17 +79,6 @@ typedef struct s_comp
 	double	re;
 	double	im;
 }	t_comp;
-
-enum
-{
-	KEY_SCROLL_UP = 4,
-	KEY_SCROLL_DOWN = 5,
-	KEY_ESC = 65307,
-	KEY_LEFT_ARROW = 65361,
-	KEY_TOP_ARROW = 65362,
-	KEY_RIGHT_ARROW = 65363,
-	KEY_BOTTOM_ARROW = 65364,
-};
 
 /* Event Hooks */
 int		key_hook(int keycode, t_canvas *canvas);

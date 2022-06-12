@@ -26,9 +26,9 @@ void	init_canvas(t_canvas *canvas, char fractal_type_char)
 	init_img(canvas);
 	init_coodinate(canvas);
 	if (fractal_type_char == '0')
-		canvas->fractal_type_num = JULIA;
+		canvas->fractal = JULIA;
 	else if (fractal_type_char == '1')
-		canvas->fractal_type_num = MANDELBROT;
+		canvas->fractal = MANDELBROT;
 }
 
 static void	init_coodinate(t_canvas *canvas)
