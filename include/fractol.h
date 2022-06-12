@@ -31,6 +31,7 @@
 # define JULIA 0
 # define MANDELBROT 1
 # define MOVE_RATIO 0.01
+# define ZOOM_RATIO 0.1
 
 typedef struct s_img
 {
@@ -66,6 +67,8 @@ typedef struct s_comp
 
 enum
 {
+	KEY_SCROLL_UP = 4,
+	KEY_SCROLL_DOWN = 5,
 	KEY_ESC = 65307,
 	KEY_LEFT_ARROW = 65361,
 	KEY_TOP_ARROW = 65362,
@@ -75,7 +78,9 @@ enum
 
 /* Event Hooks */
 int		key_hook(int keycode, t_canvas *canvas);
+int		mouse_hook(int keycode, int x, int y, t_canvas *canvas);
 int		exit_canvas(t_canvas *canvas);
+void	zoom_canvas(t_canvas *canvas, int button);
 void	update_origin(t_canvas *canvas, int keycode);
 
 /* Drawer */

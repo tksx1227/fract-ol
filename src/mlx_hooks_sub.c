@@ -28,3 +28,21 @@ void	update_origin(t_canvas *canvas, int keycode)
 	else if (keycode == KEY_BOTTOM_ARROW)
 		canvas->origin.y -= delta_y;
 }
+
+void	zoom_canvas(t_canvas *canvas, int button)
+{
+	int		direction;
+	double	delta_x;
+	double	delta_y;
+
+	delta_x = (canvas->max_point.x - canvas->min_point.x) * ZOOM_RATIO;
+	delta_y = (canvas->max_point.y - canvas->min_point.y) * ZOOM_RATIO;
+	if (button == KEY_SCROLL_UP)
+		direction = 1;
+	else if (button == KEY_SCROLL_DOWN)
+		direction = -1;
+	canvas->max_point.x -= delta_x * direction;
+	canvas->max_point.y -= delta_y * direction;
+	canvas->min_point.x += delta_x * direction;
+	canvas->min_point.y += delta_y * direction;
+}

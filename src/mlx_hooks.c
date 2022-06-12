@@ -27,3 +27,10 @@ int	exit_canvas(t_canvas *canvas)
 	mlx_destroy_window(canvas->mlx, canvas->win);
 	exit(0);
 }
+
+int	mouse_hook(int button, int x, int y, t_canvas *canvas)
+{
+	if (button == KEY_SCROLL_UP || button == KEY_SCROLL_DOWN)
+		zoom_canvas(canvas, button);
+	return (0);
+}
