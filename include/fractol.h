@@ -34,6 +34,7 @@
 
 typedef enum e_fractal
 {
+	UNKNOWN = -1,
 	JULIA = 0,
 	MANDELBROT = 1,
 }	t_fractal;

@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 00:22:44 by ttomori           #+#    #+#             */
-/*   Updated: 2022/06/12 15:37:57 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/06/12 15:42:17 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static void	init_img(t_canvas *canvas);
 static void	init_coodinate(t_canvas *canvas);
+static void init_fractal_type(t_canvas *canvas, char type_char);
 
 void	init_canvas(t_canvas *canvas, char fractal_type_char)
 {
@@ -25,20 +26,7 @@ void	init_canvas(t_canvas *canvas, char fractal_type_char)
 		exit(1);
 	init_img(canvas);
 	init_coodinate(canvas);
-	if (fractal_type_char == '0')
-		canvas->fractal = JULIA;
-	else if (fractal_type_char == '1')
-		canvas->fractal = MANDELBROT;
-}
-
-static void	init_coodinate(t_canvas *canvas)
-{
-	canvas->max_point.x = DEFAULT_X_MAX;
-	canvas->min_point.x = DEFAULT_X_MIN;
-	canvas->max_point.y = DEFAULT_Y_MAX;
-	canvas->min_point.y = DEFAULT_Y_MIN;
-	canvas->origin.x = 0.0;
-	canvas->origin.y = 0.0;
+	init_fractal_type(canvas, fractal_type_char);
 }
 
 static void	init_img(t_canvas *canvas)
@@ -56,4 +44,24 @@ static void	init_img(t_canvas *canvas)
 	if (img->addr == NULL)
 		exit(1);
 	canvas->img = img;
+}
+
+static void	init_coodinate(t_canvas *canvas)
+{
+	canvas->max_point.x = DEFAULT_X_MAX;
+	canvas->min_point.x = DEFAULT_X_MIN;
+	canvas->max_point.y = DEFAULT_Y_MAX;
+	canvas->min_point.y = DEFAULT_Y_MIN;
+	canvas->origin.x = 0.0;
+	canvas->origin.y = 0.0;
+}
+
+static void init_fractal_type(t_canvas *canvas, char type_char)
+{
+	if (type_char == '0')
+		canvas->fractal = JULIA;
+	else if (type_char == '1')
+		canvas->fractal = MANDELBROT;
+	else
+		canvas->fractal = UNKNOWN;
 }
