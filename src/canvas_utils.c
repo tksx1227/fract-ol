@@ -14,7 +14,7 @@
 
 static void	init_img(t_canvas *canvas);
 static void	init_coodinate(t_canvas *canvas);
-static void init_fractal_type(t_canvas *canvas, char type_char);
+static void	init_fractal_type(t_canvas *canvas, char type_char);
 
 void	init_canvas(t_canvas *canvas, char fractal_type_char)
 {
@@ -56,7 +56,7 @@ static void	init_coodinate(t_canvas *canvas)
 	canvas->origin.y = 0.0;
 }
 
-static void init_fractal_type(t_canvas *canvas, char type_char)
+static void	init_fractal_type(t_canvas *canvas, char type_char)
 {
 	if (type_char == '0')
 		canvas->fractal = JULIA;
