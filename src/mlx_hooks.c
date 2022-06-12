@@ -28,3 +28,9 @@ int	mouse_hook(int button, int x, int y, t_canvas *canvas)
 		zoom_canvas(canvas, button);
 	return (0);
 }
+
+int	loop_hook(t_canvas *canvas)
+{
+	mlx_put_image_to_window(canvas->mlx, canvas->win, canvas->img->img, 0, 0);
+	return (0);
+}

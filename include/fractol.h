@@ -83,6 +83,7 @@ typedef struct s_comp
 /* Event Hooks */
 int		key_hook(int keycode, t_canvas *canvas);
 int		mouse_hook(int keycode, int x, int y, t_canvas *canvas);
+int		loop_hook(t_canvas *canvas);
 int		exit_canvas(t_canvas *canvas);
 void	zoom_canvas(t_canvas *canvas, int button);
 void	update_origin(t_canvas *canvas, int keycode);
