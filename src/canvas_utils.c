@@ -27,6 +27,7 @@ void	init_canvas(t_canvas *canvas, char fractal_type_char)
 	init_img(canvas);
 	init_coodinate(canvas);
 	init_fractal_type(canvas, fractal_type_char);
+	canvas->max_iter = DEFAULT_MAX_ITER;
 }
 
 static void	init_img(t_canvas *canvas)

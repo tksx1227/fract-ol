@@ -47,20 +47,31 @@ void	move_canvas(t_canvas *canvas, int keycode)
 	}
 }
 
-void	zoom_canvas(t_canvas *canvas, int button)
+void	zoom_canvas(t_canvas *canvas, int button, t_coodinate cursor)
 {
 	int		direction;
-	double	delta_x;
-	double	delta_y;
+	double	delta_left;
+	double	delta_top;
+	double	delta_right;
+	double	delta_bottom;
 
-	delta_x = (canvas->max_point.x - canvas->min_point.x) * ZOOM_RATIO;
-	delta_y = (canvas->max_point.y - canvas->min_point.y) * ZOOM_RATIO;
+	delta_left = ZOOM_RATIO * (cursor.x - canvas->min_point.x);
+	delta_top = ZOOM_RATIO * (canvas->max_point.y - cursor.y);
+	delta_right = ZOOM_RATIO * (canvas->max_point.x - cursor.x);
+	delta_bottom = ZOOM_RATIO * (cursor.y - canvas->min_point.y);
 	if (button == KEY_SCROLL_UP)
+	{
 		direction = 1;
+		canvas->max_iter += 2;
+	}
 	else if (button == KEY_SCROLL_DOWN)
+	{
 		direction = -1;
-	canvas->max_point.x -= delta_x * direction;
-	canvas->max_point.y -= delta_y * direction;
-	canvas->min_point.x += delta_x * direction;
-	canvas->min_point.y += delta_y * direction;
+		if (20 < canvas->max_iter)
+			canvas->max_iter -= 2;
+	}
+	canvas->max_point.x -= delta_right * direction;
+	canvas->max_point.y -= delta_top * direction;
+	canvas->min_point.x += delta_left * direction;
+	canvas->min_point.y += delta_bottom * direction;
 }

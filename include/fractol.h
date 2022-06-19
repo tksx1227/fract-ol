@@ -29,8 +29,9 @@
 # define DEFAULT_X_MIN -2
 # define DEFAULT_Y_MAX 2
 # define DEFAULT_Y_MIN -2
-# define ZOOM_RATIO 0.1
+# define DEFAULT_MAX_ITER 80
 # define MOVE_RATIO 0.05
+# define ZOOM_RATIO 0.15
 
 typedef enum e_fractal
 {
@@ -71,6 +72,7 @@ typedef struct s_canvas
 	void		*win;
 	t_img		*img;
 	t_fractal	fractal;
+	int			max_iter;
 	t_coodinate	max_point;
 	t_coodinate	min_point;
 }	t_canvas;
@@ -83,10 +85,10 @@ typedef struct s_comp
 
 /* Event Hooks */
 int		key_hook(int keycode, t_canvas *canvas);
-int		mouse_hook(int keycode, int x, int y, t_canvas *canvas);
+int		mouse_hook(int keycode, int w, int h, t_canvas *canvas);
 int		loop_hook(t_canvas *canvas);
 int		exit_canvas(t_canvas *canvas);
-void	zoom_canvas(t_canvas *canvas, int button);
+void	zoom_canvas(t_canvas *canvas, int button, t_coodinate cursor);
 void	move_canvas(t_canvas *canvas, int keycode);
 
 /* Drawer */

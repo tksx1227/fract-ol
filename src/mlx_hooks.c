@@ -22,10 +22,18 @@ int	key_hook(int keycode, t_canvas *canvas)
 	return (0);
 }
 
-int	mouse_hook(int button, int x, int y, t_canvas *canvas)
+int	mouse_hook(int button, int w, int h, t_canvas *canvas)
 {
+	t_coodinate	cursor;
+
 	if (button == KEY_SCROLL_UP || button == KEY_SCROLL_DOWN)
-		zoom_canvas(canvas, button);
+	{
+		cursor.x = canvas->min_point.x + \
+			(w * (canvas->max_point.x - canvas->min_point.x) / WIDTH);
+		cursor.y = canvas->min_point.y + \
+			((HEIGHT - h) * (canvas->max_point.y - canvas->min_point.y) / HEIGHT);
+		zoom_canvas(canvas, button, cursor);
+	}
 	return (0);
 }
 
