@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 12:44:02 by ttomori           #+#    #+#             */
-/*   Updated: 2022/06/19 23:38:59 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/06/20 00:39:55 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@
 # define WIDTH 720
 # define HEIGHT 720
 # define DEFAULT_MAX_ITER 80
-# define DEFAULT_X_MAX 2.0
-# define DEFAULT_X_MIN -2.0
-# define DEFAULT_Y_MAX 2.0
-# define DEFAULT_Y_MIN -2.0
+# define DEFAULT_MAX_RE 2.0
+# define DEFAULT_MIN_RE -2.0
+# define DEFAULT_MAX_IM 2.0
+# define DEFAULT_MIN_IM -2.0
 # define MOVE_RATIO 0.05
 # define ZOOM_RATIO 0.15
 
@@ -51,6 +51,12 @@ typedef enum e_keys
 	KEY_BOTTOM_ARROW = 65364,
 }	t_keys;
 
+typedef struct s_comp
+{
+	double	re;
+	double	im;
+}	t_comp;
+
 typedef struct s_img
 {
 	void	*img;
@@ -60,12 +66,6 @@ typedef struct s_img
 	int		endian;
 }	t_img;
 
-typedef struct s_coodinate
-{
-	double	x;
-	double	y;
-}	t_coodinate;
-
 typedef struct s_canvas
 {
 	void		*mlx;
@@ -73,22 +73,16 @@ typedef struct s_canvas
 	t_img		*img;
 	t_fractal	fractal;
 	int			max_iter;
-	t_coodinate	max_point;
-	t_coodinate	min_point;
+	t_comp		max;
+	t_comp		min;
 }	t_canvas;
-
-typedef struct s_comp
-{
-	double	re;
-	double	im;
-}	t_comp;
 
 /* Event Hooks */
 int		key_hook(int keycode, t_canvas *canvas);
 int		mouse_hook(int keycode, int w, int h, t_canvas *canvas);
 int		loop_hook(t_canvas *canvas);
 int		exit_canvas(t_canvas *canvas);
-void	zoom_canvas(t_canvas *canvas, int button, t_coodinate cursor);
+void	zoom_canvas(t_canvas *canvas, int button, t_comp cursor);
 void	move_canvas(t_canvas *canvas, int keycode);
 
 /* Drawer */

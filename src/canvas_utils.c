@@ -49,10 +49,10 @@ static void	init_img(t_canvas *canvas)
 
 static void	init_coodinate(t_canvas *canvas)
 {
-	canvas->max_point.x = DEFAULT_X_MAX;
-	canvas->min_point.x = DEFAULT_X_MIN;
-	canvas->max_point.y = DEFAULT_Y_MAX;
-	canvas->min_point.y = DEFAULT_Y_MIN;
+	canvas->max.re = DEFAULT_MAX_RE;
+	canvas->min.re = DEFAULT_MIN_RE;
+	canvas->max.im = DEFAULT_MAX_IM;
+	canvas->min.im = DEFAULT_MIN_IM;
 }
 
 static void	init_fractal_type(t_canvas *canvas, char type_char)

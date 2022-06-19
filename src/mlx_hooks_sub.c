@@ -20,34 +20,34 @@ int	exit_canvas(t_canvas *canvas)
 
 void	move_canvas(t_canvas *canvas, int keycode)
 {
-	double	delta_x;
-	double	delta_y;
+	double	delta_re;
+	double	delta_im;
 
-	delta_x = (canvas->max_point.x - canvas->min_point.x) * MOVE_RATIO;
-	delta_y = (canvas->max_point.y - canvas->min_point.y) * MOVE_RATIO;
+	delta_re = (canvas->max.re - canvas->min.re) * MOVE_RATIO;
+	delta_im = (canvas->max.im - canvas->min.im) * MOVE_RATIO;
 	if (keycode == KEY_LEFT_ARROW)
 	{
-		canvas->max_point.x -= delta_x;
-		canvas->min_point.x -= delta_x;
+		canvas->max.re -= delta_re;
+		canvas->min.re -= delta_re;
 	}
 	else if (keycode == KEY_TOP_ARROW)
 	{
-		canvas->max_point.y += delta_y;
-		canvas->min_point.y += delta_y;
+		canvas->max.im += delta_im;
+		canvas->min.im += delta_im;
 	}
 	else if (keycode == KEY_RIGHT_ARROW)
 	{
-		canvas->max_point.x += delta_x;
-		canvas->min_point.x += delta_x;
+		canvas->max.re += delta_re;
+		canvas->min.re += delta_re;
 	}
 	else if (keycode == KEY_BOTTOM_ARROW)
 	{
-		canvas->max_point.y -= delta_y;
-		canvas->min_point.y -= delta_y;
+		canvas->max.im -= delta_im;
+		canvas->min.im -= delta_im;
 	}
 }
 
-void	zoom_canvas(t_canvas *canvas, int button, t_coodinate cursor)
+void	zoom_canvas(t_canvas *canvas, int button, t_comp cursor)
 {
 	int		direction;
 	double	delta_left;
@@ -55,10 +55,10 @@ void	zoom_canvas(t_canvas *canvas, int button, t_coodinate cursor)
 	double	delta_right;
 	double	delta_bottom;
 
-	delta_left = ZOOM_RATIO * (cursor.x - canvas->min_point.x);
-	delta_top = ZOOM_RATIO * (canvas->max_point.y - cursor.y);
-	delta_right = ZOOM_RATIO * (canvas->max_point.x - cursor.x);
-	delta_bottom = ZOOM_RATIO * (cursor.y - canvas->min_point.y);
+	delta_left = ZOOM_RATIO * (cursor.re - canvas->min.re);
+	delta_top = ZOOM_RATIO * (canvas->max.im - cursor.im);
+	delta_right = ZOOM_RATIO * (canvas->max.re - cursor.re);
+	delta_bottom = ZOOM_RATIO * (cursor.im - canvas->min.im);
 	if (button == KEY_SCROLL_UP)
 	{
 		direction = 1;
@@ -70,8 +70,8 @@ void	zoom_canvas(t_canvas *canvas, int button, t_coodinate cursor)
 		if (20 < canvas->max_iter)
 			canvas->max_iter -= 2;
 	}
-	canvas->max_point.x -= delta_right * direction;
-	canvas->max_point.y -= delta_top * direction;
-	canvas->min_point.x += delta_left * direction;
-	canvas->min_point.y += delta_bottom * direction;
+	canvas->max.re -= delta_right * direction;
+	canvas->max.im -= delta_top * direction;
+	canvas->min.re += delta_left * direction;
+	canvas->min.im += delta_bottom * direction;
 }

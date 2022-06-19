@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 12:11:18 by ttomori           #+#    #+#             */
-/*   Updated: 2022/06/19 23:36:49 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/06/20 00:39:26 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ int	key_hook(int keycode, t_canvas *canvas)
 
 int	mouse_hook(int button, int w, int h, t_canvas *canvas)
 {
-	t_coodinate	cursor;
+	t_comp	cursor;
 
 	if (button == KEY_SCROLL_UP || button == KEY_SCROLL_DOWN)
 	{
-		cursor.x = canvas->min_point.x + \
-			(w * (canvas->max_point.x - canvas->min_point.x) / WIDTH);
-		cursor.y = canvas->min_point.y + \
-			((HEIGHT - h) * (canvas->max_point.y - canvas->min_point.y) / HEIGHT);
+		cursor.re = canvas->min.re + \
+			(w * (canvas->max.re - canvas->min.re) / WIDTH);
+		cursor.im = canvas->min.im + \
+			((HEIGHT - h) * (canvas->max.im - canvas->min.im) / HEIGHT);
 		zoom_canvas(canvas, button, cursor);
 	}
 	return (0);
