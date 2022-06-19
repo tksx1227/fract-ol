@@ -25,11 +25,11 @@
 
 # define WIDTH 720
 # define HEIGHT 720
-# define DEFAULT_X_MAX 2
-# define DEFAULT_X_MIN -2
-# define DEFAULT_Y_MAX 2
-# define DEFAULT_Y_MIN -2
 # define DEFAULT_MAX_ITER 80
+# define DEFAULT_X_MAX 2.0
+# define DEFAULT_X_MIN -2.0
+# define DEFAULT_Y_MAX 2.0
+# define DEFAULT_Y_MIN -2.0
 # define MOVE_RATIO 0.05
 # define ZOOM_RATIO 0.15
 
@@ -92,7 +92,7 @@ void	zoom_canvas(t_canvas *canvas, int button, t_coodinate cursor);
 void	move_canvas(t_canvas *canvas, int keycode);
 
 /* Drawer */
-void	my_mlx_pixel_put(t_canvas *canvas, int x, int y, int color);
+void	my_mlx_pixel_put(t_canvas *canvas, int w, int h, int color);
 
 /* Utils */
 int		ft_strcmp(const char *s1, const char *s2);
