@@ -18,7 +18,6 @@
 # include <stdint.h>
 # include <limits.h>
 # include <math.h>
-# include <stdbool.h>
 # include <unistd.h>
 # include <X11/X.h>
 # include "mlx.h"
@@ -92,7 +91,6 @@ void	my_mlx_pixel_put(t_canvas *canvas, int w, int h, int color);
 int		ft_strcmp(const char *s1, const char *s2);
 void	ft_putstr_fd(char const *s, int fd);
 void	print_usage(void);
-bool	is_mandelbrot(t_comp comp);
 uint32_t	rgb2hex(unsigned char r, unsigned char g, unsigned char b);
 
 /* MinilibX Utils*/
