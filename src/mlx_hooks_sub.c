@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 14:30:21 by ttomori           #+#    #+#             */
-/*   Updated: 2022/06/12 14:30:21 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/06/19 23:41:10 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	exit_canvas(t_canvas *canvas)
 	exit(0);
 }
 
-void	update_origin(t_canvas *canvas, int keycode)
+void	move_canvas(t_canvas *canvas, int keycode)
 {
 	double	delta_x;
 	double	delta_y;
@@ -26,13 +26,25 @@ void	update_origin(t_canvas *canvas, int keycode)
 	delta_x = (canvas->max_point.x - canvas->min_point.x) * MOVE_RATIO;
 	delta_y = (canvas->max_point.y - canvas->min_point.y) * MOVE_RATIO;
 	if (keycode == KEY_LEFT_ARROW)
-		canvas->origin.x += delta_x;
+	{
+		canvas->max_point.x -= delta_x;
+		canvas->min_point.x -= delta_x;
+	}
 	else if (keycode == KEY_TOP_ARROW)
-		canvas->origin.y += delta_y;
+	{
+		canvas->max_point.y += delta_y;
+		canvas->min_point.y += delta_y;
+	}
 	else if (keycode == KEY_RIGHT_ARROW)
-		canvas->origin.x -= delta_x;
+	{
+		canvas->max_point.x += delta_x;
+		canvas->min_point.x += delta_x;
+	}
 	else if (keycode == KEY_BOTTOM_ARROW)
-		canvas->origin.y -= delta_y;
+	{
+		canvas->max_point.y -= delta_y;
+		canvas->min_point.y -= delta_y;
+	}
 }
 
 void	zoom_canvas(t_canvas *canvas, int button)

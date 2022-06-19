@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 00:22:44 by ttomori           #+#    #+#             */
-/*   Updated: 2022/06/12 15:42:17 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/06/19 23:34:19 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ static void	init_coodinate(t_canvas *canvas)
 	canvas->min_point.x = DEFAULT_X_MIN;
 	canvas->max_point.y = DEFAULT_Y_MAX;
 	canvas->min_point.y = DEFAULT_Y_MIN;
-	canvas->origin.x = 0.0;
-	canvas->origin.y = 0.0;
 }
 
 static void	init_fractal_type(t_canvas *canvas, char type_char)

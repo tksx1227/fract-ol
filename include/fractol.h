@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 12:44:02 by ttomori           #+#    #+#             */
-/*   Updated: 2022/06/19 23:30:42 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/06/19 23:38:59 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 # define DEFAULT_X_MIN -2
 # define DEFAULT_Y_MAX 2
 # define DEFAULT_Y_MIN -2
-# define MOVE_RATIO 0.01
 # define ZOOM_RATIO 0.1
+# define MOVE_RATIO 0.05
 
 typedef enum e_fractal
 {
@@ -71,7 +71,6 @@ typedef struct s_canvas
 	void		*win;
 	t_img		*img;
 	t_fractal	fractal;
-	t_coodinate	origin;
 	t_coodinate	max_point;
 	t_coodinate	min_point;
 }	t_canvas;
@@ -88,7 +87,7 @@ int		mouse_hook(int keycode, int x, int y, t_canvas *canvas);
 int		loop_hook(t_canvas *canvas);
 int		exit_canvas(t_canvas *canvas);
 void	zoom_canvas(t_canvas *canvas, int button);
-void	update_origin(t_canvas *canvas, int keycode);
+void	move_canvas(t_canvas *canvas, int keycode);
 
 /* Drawer */
 void	my_mlx_pixel_put(t_canvas *canvas, int x, int y, int color);
