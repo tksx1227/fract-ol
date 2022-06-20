@@ -19,7 +19,7 @@ int	key_hook(int keycode, t_canvas *canvas)
 	else if (keycode == KEY_LEFT_ARROW || keycode == KEY_UP_ARROW || \
 			keycode == KEY_RIGHT_ARROW || keycode == KEY_DOWN_ARROW)
 		move_canvas(canvas, keycode);
-	else if (keycode == KEY_SPACE)
+	else if (canvas->fractal->type == JULIA && keycode == KEY_SPACE)
 		canvas->fractal->is_pressed_space_key = \
 		!canvas->fractal->is_pressed_space_key;
 	return (0);
