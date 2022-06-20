@@ -29,6 +29,8 @@
 # define DEFAULT_MIN_RE -2.0
 # define DEFAULT_MAX_IM 2.0
 # define DEFAULT_MIN_IM -2.0
+# define DEFAULT_JULIA_C_RE -0.7
+# define DEFAULT_JULIA_C_IM -0.3
 # define MOVE_RATIO 0.05
 # define ZOOM_RATIO 0.15
 
@@ -94,6 +96,7 @@ void	move_canvas(t_canvas *canvas, int keycode);
 
 /* Drawer */
 void	my_mlx_pixel_put(t_canvas *canvas, int w, int h, int color);
+void	draw_julia(t_canvas *canvas);
 
 /* Utils */
 double	abs_double(double n);

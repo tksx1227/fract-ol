@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 22:07:08 by ttomori           #+#    #+#             */
-/*   Updated: 2022/06/19 23:38:44 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/06/20 19:04:41 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,3 +20,32 @@ void	my_mlx_pixel_put(t_canvas *canvas, int w, int h, int color)
 		(h * canvas->img->line_length + w * (canvas->img->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
+
+void	draw_julia(t_canvas *canvas)
+{
+	int			w;
+	int			h;
+	double		re;
+	double		im;
+	uint32_t	color;
+
+	w = 0;
+	canvas->fractal->c = init_comp(DEFAULT_JULIA_C_RE, DEFAULT_JULIA_C_IM);
+	while (w < WIDTH)
+	{
+		h = 0;
+		while (h < HEIGHT)
+		{
+			re = canvas->min.re + \
+				(w * (canvas->max.re - canvas->min.re) / WIDTH);
+			im = canvas->min.im + \
+				((HEIGHT - h) * (canvas->max.im - canvas->min.im) / HEIGHT);
+			canvas->fractal->z = init_comp(re, im);
+			color = get_fractal_color(canvas->fractal);
+			my_mlx_pixel_put(canvas, w, h, color);
+			h++;
+		}
+		w++;
+	}
+}
+
