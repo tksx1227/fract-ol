@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 19:04:02 by ttomori           #+#    #+#             */
-/*   Updated: 2022/06/20 19:05:12 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/06/20 23:57:22 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ uint32_t	get_fractal_color(t_fractal *fractal)
 	while (i < fractal->max_iter)
 	{
 		if (comp_dist(z) > 2.0)
-			return (rgb2hex(
-					i % 42,
-					255 * i / fractal->max_iter,
-					(int)powf((i / (double)fractal->max_iter) * 256, 1.5) % 256
-				));
+			return (rgb2hex(\
+				(int)(pow(i, 2) / fractal->max_iter) % 235 + 20, \
+				(int)powf(255 * i / fractal->max_iter, 1.2) % 235 + 20, \
+				(int)powf(255 * i / fractal->max_iter, 1.3) % 235 + 20 \
+			));
 		if (fractal->type == BURNING_SHIP)
 			z = init_comp(abs_double(z.re), abs_double(z.im));
 		z = comp_add(comp_mul(z, z), c);

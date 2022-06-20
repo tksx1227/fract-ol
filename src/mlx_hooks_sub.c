@@ -55,10 +55,10 @@ void	zoom_canvas(t_canvas *canvas, int button, t_comp cursor)
 	double	delta_right;
 	double	delta_bottom;
 
-	delta_left = ZOOM_RATIO * (cursor.re - canvas->min.re);
-	delta_top = ZOOM_RATIO * (canvas->max.im - cursor.im);
-	delta_right = ZOOM_RATIO * (canvas->max.re - cursor.re);
-	delta_bottom = ZOOM_RATIO * (cursor.im - canvas->min.im);
+	delta_left = (cursor.re - canvas->min.re) * ZOOM_RATIO;
+	delta_top = (canvas->max.im - cursor.im) * ZOOM_RATIO;
+	delta_right = (canvas->max.re - cursor.re) * ZOOM_RATIO;
+	delta_bottom = (cursor.im - canvas->min.im) * ZOOM_RATIO;
 	if (button == KEY_SCROLL_UP)
 	{
 		direction = 1;
