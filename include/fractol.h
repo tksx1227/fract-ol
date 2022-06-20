@@ -37,6 +37,7 @@ typedef enum e_fractal_type
 	UNKNOWN = -1,
 	JULIA = 0,
 	MANDELBROT = 1,
+	BURNING_SHIP = 2,
 }	t_fractal_type;
 
 typedef enum e_keys

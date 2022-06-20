@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 12:03:05 by ttomori           #+#    #+#             */
-/*   Updated: 2022/06/12 23:24:04 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/06/20 17:17:10 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ int	main(int argc, char **argv)
 {
 	t_canvas	canvas;
 
-	if (argc != 2 || \
-		!(ft_strcmp(argv[1], "0") == 0 || ft_strcmp(argv[1], "1") == 0))
+	if (argc != 2 \
+			|| !(ft_strcmp(argv[1], "0") == 0 \
+				|| ft_strcmp(argv[1], "1") == 0 \
+				|| ft_strcmp(argv[1], "2") == 0))
 	{
 		print_usage();
 		exit(1);

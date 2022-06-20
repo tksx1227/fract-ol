@@ -43,6 +43,7 @@ void	print_usage(void)
 	ft_putstr_fd("The available type numbers are:\n", STDERR_FILENO);
 	ft_putstr_fd("  - 0: Julia\n", STDERR_FILENO);
 	ft_putstr_fd("  - 1: Mandelbrot\n", STDERR_FILENO);
+	ft_putstr_fd("  - 2: Burning ship\n", STDERR_FILENO);
 }
 
 int	ft_strcmp(const char *s1, const char *s2)

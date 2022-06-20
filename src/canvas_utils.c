@@ -68,6 +68,8 @@ static void	init_fractal(t_canvas *canvas, char type_char)
 		fractal->type = JULIA;
 	else if (type_char == '1')
 		fractal->type = MANDELBROT;
+	else if (type_char == '2')
+		fractal->type = BURNING_SHIP;
 	else
 		fractal->type = UNKNOWN;
 	canvas->fractal = fractal;
