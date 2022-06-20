@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 12:44:02 by ttomori           #+#    #+#             */
-/*   Updated: 2022/06/20 00:39:55 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/06/20 18:28:06 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void	move_canvas(t_canvas *canvas, int keycode);
 void	my_mlx_pixel_put(t_canvas *canvas, int w, int h, int color);
 
 /* Utils */
+double	abs_double(double n);
 int		ft_strcmp(const char *s1, const char *s2);
 void	ft_putstr_fd(char const *s, int fd);
 void	print_usage(void);

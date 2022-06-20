@@ -6,11 +6,18 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 12:03:39 by ttomori           #+#    #+#             */
-/*   Updated: 2022/06/12 00:47:51 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/06/20 18:27:55 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+double	abs_double(double n)
+{
+	if (n < 0)
+		return (-n);
+	return (n);
+}
 
 void	ft_putstr_fd(char const *s, int fd)
 {
