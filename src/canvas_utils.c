@@ -14,7 +14,7 @@
 
 static void	init_img(t_canvas *canvas);
 static void	init_coodinate(t_canvas *canvas);
-static void	init_fractal_type(t_canvas *canvas, char type_char);
+static void	init_fractal(t_canvas *canvas, char type_char);
 
 void	init_canvas(t_canvas *canvas, char fractal_type_char)
 {
@@ -26,8 +26,7 @@ void	init_canvas(t_canvas *canvas, char fractal_type_char)
 		exit(1);
 	init_img(canvas);
 	init_coodinate(canvas);
-	init_fractal_type(canvas, fractal_type_char);
-	canvas->max_iter = DEFAULT_MAX_ITER;
+	init_fractal(canvas, fractal_type_char);
 }
 
 static void	init_img(t_canvas *canvas)
@@ -55,12 +54,21 @@ static void	init_coodinate(t_canvas *canvas)
 	canvas->min.im = DEFAULT_MIN_IM;
 }
 
-static void	init_fractal_type(t_canvas *canvas, char type_char)
+static void	init_fractal(t_canvas *canvas, char type_char)
 {
+	t_fractal	*fractal;
+
+	fractal = (t_fractal *)malloc(sizeof(t_fractal));
+	if (fractal == NULL)
+		exit(1);
+	fractal->max_iter = DEFAULT_MAX_ITER;
+	fractal->z = init_comp(0.0, 0.0);
+	fractal->c = init_comp(0.0, 0.0);
 	if (type_char == '0')
-		canvas->fractal = JULIA;
+		fractal->type = JULIA;
 	else if (type_char == '1')
-		canvas->fractal = MANDELBROT;
+		fractal->type = MANDELBROT;
 	else
-		canvas->fractal = UNKNOWN;
+		fractal->type = UNKNOWN;
+	canvas->fractal = fractal;
 }

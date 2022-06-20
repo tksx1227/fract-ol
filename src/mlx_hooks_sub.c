@@ -62,13 +62,13 @@ void	zoom_canvas(t_canvas *canvas, int button, t_comp cursor)
 	if (button == KEY_SCROLL_UP)
 	{
 		direction = 1;
-		canvas->max_iter += 2;
+		canvas->fractal->max_iter += 2;
 	}
 	else if (button == KEY_SCROLL_DOWN)
 	{
 		direction = -1;
-		if (20 < canvas->max_iter)
-			canvas->max_iter -= 2;
+		if (20 < canvas->fractal->max_iter)
+			canvas->fractal->max_iter -= 2;
 	}
 	canvas->max.re -= delta_right * direction;
 	canvas->max.im -= delta_top * direction;

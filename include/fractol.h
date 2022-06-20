@@ -32,12 +32,12 @@
 # define MOVE_RATIO 0.05
 # define ZOOM_RATIO 0.15
 
-typedef enum e_fractal
+typedef enum e_fractal_type
 {
 	UNKNOWN = -1,
 	JULIA = 0,
 	MANDELBROT = 1,
-}	t_fractal;
+}	t_fractal_type;
 
 typedef enum e_keys
 {
@@ -56,6 +56,14 @@ typedef struct s_comp
 	double	im;
 }	t_comp;
 
+typedef struct s_fractal
+{
+	int				max_iter;
+	t_comp			z;
+	t_comp			c;
+	t_fractal_type	type;
+}	t_fractal;
+
 typedef struct s_img
 {
 	void	*img;
@@ -70,8 +78,7 @@ typedef struct s_canvas
 	void		*mlx;
 	void		*win;
 	t_img		*img;
-	t_fractal	fractal;
-	int			max_iter;
+	t_fractal	*fractal;
 	t_comp		max;
 	t_comp		min;
 }	t_canvas;
