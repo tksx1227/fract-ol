@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 12:44:02 by ttomori           #+#    #+#             */
-/*   Updated: 2022/06/20 19:04:51 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/06/20 21:17:58 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,33 +87,31 @@ typedef struct s_canvas
 }	t_canvas;
 
 /* Event Hooks */
-int		key_hook(int keycode, t_canvas *canvas);
-int		mouse_hook(int keycode, int w, int h, t_canvas *canvas);
-int		loop_hook(t_canvas *canvas);
-int		exit_canvas(t_canvas *canvas);
-void	zoom_canvas(t_canvas *canvas, int button, t_comp cursor);
-void	move_canvas(t_canvas *canvas, int keycode);
+int			key_hook(int keycode, t_canvas *canvas);
+int			mouse_hook(int keycode, int w, int h, t_canvas *canvas);
+int			loop_hook(t_canvas *canvas);
+int			exit_canvas(t_canvas *canvas);
+void		zoom_canvas(t_canvas *canvas, int button, t_comp cursor);
+void		move_canvas(t_canvas *canvas, int keycode);
 
 /* Drawer */
-void	my_mlx_pixel_put(t_canvas *canvas, int w, int h, int color);
-void	draw_julia(t_canvas *canvas);
-void	draw_mandelbrot(t_canvas *canvas);
-void	draw_burningship(t_canvas *canvas);
+void		my_mlx_pixel_put(t_canvas *canvas, int w, int h, int color);
+void		draw_julia(t_canvas *canvas);
+void		draw_mandelbrot(t_canvas *canvas);
+void		draw_burningship(t_canvas *canvas);
 
 /* Utils */
-double	abs_double(double n);
-int		ft_strcmp(const char *s1, const char *s2);
-void	print_usage(void);
+int			ft_strcmp(const char *s1, const char *s2);
+void		init_canvas(t_canvas *canvas, char fractal_type_char);
+void		print_usage(void);
+double		abs_double(double n);
 uint32_t	rgb2hex(unsigned char r, unsigned char g, unsigned char b);
 uint32_t	get_fractal_color(t_fractal *fractal);
 
-/* MinilibX Utils*/
-void	init_canvas(t_canvas *canvas, char fractal_type_char);
-
 /* Complex Utils */
-t_comp	init_comp(double re, double im);
-t_comp	comp_mul(t_comp c1, t_comp c2);
-t_comp	comp_add(t_comp c1, t_comp c2);
-double	comp_dist(t_comp c);
+t_comp		init_comp(double re, double im);
+t_comp		comp_mul(t_comp c1, t_comp c2);
+t_comp		comp_add(t_comp c1, t_comp c2);
+double		comp_dist(t_comp c);
 
 #endif
