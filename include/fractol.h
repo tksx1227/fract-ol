@@ -45,9 +45,9 @@ typedef enum e_keys
 	KEY_SCROLL_DOWN = 5,
 	KEY_ESC = 65307,
 	KEY_LEFT_ARROW = 65361,
-	KEY_TOP_ARROW = 65362,
+	KEY_UP_ARROW = 65362,
 	KEY_RIGHT_ARROW = 65363,
-	KEY_BOTTOM_ARROW = 65364,
+	KEY_DOWN_ARROW = 65364,
 }	t_keys;
 
 typedef struct s_comp

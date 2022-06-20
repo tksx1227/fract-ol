@@ -30,7 +30,7 @@ void	move_canvas(t_canvas *canvas, int keycode)
 		canvas->max.re -= delta_re;
 		canvas->min.re -= delta_re;
 	}
-	else if (keycode == KEY_TOP_ARROW)
+	else if (keycode == KEY_UP_ARROW)
 	{
 		canvas->max.im += delta_im;
 		canvas->min.im += delta_im;
@@ -40,7 +40,7 @@ void	move_canvas(t_canvas *canvas, int keycode)
 		canvas->max.re += delta_re;
 		canvas->min.re += delta_re;
 	}
-	else if (keycode == KEY_BOTTOM_ARROW)
+	else if (keycode == KEY_DOWN_ARROW)
 	{
 		canvas->max.im -= delta_im;
 		canvas->min.im -= delta_im;

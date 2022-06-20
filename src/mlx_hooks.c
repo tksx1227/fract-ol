@@ -16,8 +16,8 @@ int	key_hook(int keycode, t_canvas *canvas)
 {
 	if (keycode == KEY_ESC)
 		exit_canvas(canvas);
-	else if (keycode == KEY_LEFT_ARROW || keycode == KEY_TOP_ARROW || \
-			keycode == KEY_RIGHT_ARROW || keycode == KEY_BOTTOM_ARROW)
+	else if (keycode == KEY_LEFT_ARROW || keycode == KEY_UP_ARROW || \
+			keycode == KEY_RIGHT_ARROW || keycode == KEY_DOWN_ARROW)
 		move_canvas(canvas, keycode);
 	return (0);
 }
