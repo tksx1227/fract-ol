@@ -57,3 +57,14 @@ int	ft_strcmp(const char *s1, const char *s2)
 	}
 	return (0);
 }
+
+uint32_t	rgb2hex(unsigned char r, unsigned char g, unsigned char b)
+{
+	uint32_t	color;
+
+	color = 0;
+	color |= b;
+	color |= g << 8;
+	color |= r << 16;
+	return (color);
+}
