@@ -44,11 +44,11 @@ The actions that can be executed while drawing are:
 
 Julia set
 
-![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/59915788/174650873-440c3830-82a5-4067-ae4a-00a74cb83e05.gif)
+![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/59915788/174652551-634ad1bd-1831-4590-92d6-853860e8acb7.gif)
 
 Mandelbrot set
 
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/59915788/174650836-ae6bf765-4751-461a-ac4f-893a473fa739.gif)
+![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/59915788/174652361-1c030d21-f4ee-4203-bb6f-34bf4c141bb0.gif)
 
 Burning ship set
 
