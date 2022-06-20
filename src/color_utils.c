@@ -34,7 +34,7 @@ uint32_t	get_fractal_color(t_fractal *fractal)
 	c = fractal->c;
 	while (i < fractal->max_iter)
 	{
-		if (comp_dist(fractal->z) > 2.0)
+		if (comp_dist(z) > 2.0)
 			return (rgb2hex(
 					i % 42,
 					255 * i / fractal->max_iter,
