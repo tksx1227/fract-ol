@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 12:11:18 by ttomori           #+#    #+#             */
-/*   Updated: 2022/06/20 00:39:26 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/06/20 19:06:31 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,12 @@ int	mouse_hook(int button, int w, int h, t_canvas *canvas)
 
 int	loop_hook(t_canvas *canvas)
 {
+	if (canvas->fractal->type == JULIA)
+		draw_julia(canvas);
+	else if (canvas->fractal->type == MANDELBROT)
+		draw_mandelbrot(canvas);
+	else if (canvas->fractal->type == BURNING_SHIP)
+		draw_burningship(canvas);
 	mlx_put_image_to_window(canvas->mlx, canvas->win, canvas->img->img, 0, 0);
 	return (0);
 }
