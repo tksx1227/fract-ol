@@ -19,6 +19,7 @@
 # include <limits.h>
 # include <math.h>
 # include <unistd.h>
+# include <errno.h>
 # include <X11/X.h>
 # include "mlx.h"
 
