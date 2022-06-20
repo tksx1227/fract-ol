@@ -12,6 +12,17 @@
 
 #include "fractol.h"
 
+uint32_t	rgb2hex(unsigned char r, unsigned char g, unsigned char b)
+{
+	uint32_t	color;
+
+	color = 0;
+	color |= b;
+	color |= g << 8;
+	color |= r << 16;
+	return (color);
+}
+
 uint32_t	get_fractal_color(t_fractal *fractal)
 {
 	int		i;

@@ -6,35 +6,19 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 12:03:39 by ttomori           #+#    #+#             */
-/*   Updated: 2022/06/20 18:27:55 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/06/20 19:05:03 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+static void	ft_putstr_fd(char const *s, int fd);
 
 double	abs_double(double n)
 {
 	if (n < 0)
 		return (-n);
 	return (n);
-}
-
-void	ft_putstr_fd(char const *s, int fd)
-{
-	size_t	len;
-
-	if (s == NULL)
-		return ;
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	while (INT_MAX < len)
-	{
-		write(fd, s, INT_MAX);
-		s += INT_MAX;
-		len -= INT_MAX;
-	}
-	write(fd, s, len);
 }
 
 void	print_usage(void)
@@ -66,13 +50,20 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return (0);
 }
 
-uint32_t	rgb2hex(unsigned char r, unsigned char g, unsigned char b)
+static void	ft_putstr_fd(char const *s, int fd)
 {
-	uint32_t	color;
+	size_t	len;
 
-	color = 0;
-	color |= b;
-	color |= g << 8;
-	color |= r << 16;
-	return (color);
+	if (s == NULL)
+		return ;
+	len = 0;
+	while (s[len] != '\0')
+		len++;
+	while (INT_MAX < len)
+	{
+		write(fd, s, INT_MAX);
+		s += INT_MAX;
+		len -= INT_MAX;
+	}
+	write(fd, s, len);
 }

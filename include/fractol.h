@@ -98,7 +98,6 @@ void	my_mlx_pixel_put(t_canvas *canvas, int w, int h, int color);
 /* Utils */
 double	abs_double(double n);
 int		ft_strcmp(const char *s1, const char *s2);
-void	ft_putstr_fd(char const *s, int fd);
 void	print_usage(void);
 uint32_t	rgb2hex(unsigned char r, unsigned char g, unsigned char b);
 uint32_t	get_fractal_color(t_fractal *fractal);
