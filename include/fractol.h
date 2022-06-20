@@ -97,6 +97,7 @@ void	move_canvas(t_canvas *canvas, int keycode);
 /* Drawer */
 void	my_mlx_pixel_put(t_canvas *canvas, int w, int h, int color);
 void	draw_julia(t_canvas *canvas);
+void	draw_mandelbrot(t_canvas *canvas);
 
 /* Utils */
 double	abs_double(double n);

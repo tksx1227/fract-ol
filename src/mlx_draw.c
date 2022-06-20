@@ -12,6 +12,8 @@
 
 #include "fractol.h"
 
+static void		draw_mandelbrot_burningship_common(t_canvas *canvas);
+
 void	my_mlx_pixel_put(t_canvas *canvas, int w, int h, int color)
 {
 	char	*dst;
@@ -49,3 +51,35 @@ void	draw_julia(t_canvas *canvas)
 	}
 }
 
+void	draw_mandelbrot(t_canvas *canvas)
+{
+	draw_mandelbrot_burningship_common(canvas);
+}
+
+static void	draw_mandelbrot_burningship_common(t_canvas *canvas)
+{
+	int			w;
+	int			h;
+	double		re;
+	double		im;
+	uint32_t	color;
+
+	w = 0;
+	while (w < WIDTH)
+	{
+		h = 0;
+		while (h < HEIGHT)
+		{
+			re = canvas->min.re + \
+				(w * (canvas->max.re - canvas->min.re) / WIDTH);
+			im = canvas->min.im + \
+				((HEIGHT - h) * (canvas->max.im - canvas->min.im) / HEIGHT);
+			canvas->fractal->c = init_comp(re, im);
+			canvas->fractal->z = init_comp(0.0, 0.0);
+			color = get_fractal_color(canvas->fractal);
+			my_mlx_pixel_put(canvas, w, h, color);
+			h++;
+		}
+		w++;
+	}
+}
