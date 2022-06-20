@@ -22,8 +22,8 @@
 # include <X11/X.h>
 # include "mlx.h"
 
-# define WIDTH 720
-# define HEIGHT 720
+# define WIDTH 720.0
+# define HEIGHT 720.0
 # define DEFAULT_MAX_ITER 80
 # define DEFAULT_MAX_RE 2.0
 # define DEFAULT_MIN_RE -2.0
