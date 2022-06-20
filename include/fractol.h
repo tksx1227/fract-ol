@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 12:44:02 by ttomori           #+#    #+#             */
-/*   Updated: 2022/06/20 18:28:06 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/06/20 19:04:51 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ int		ft_strcmp(const char *s1, const char *s2);
 void	ft_putstr_fd(char const *s, int fd);
 void	print_usage(void);
 uint32_t	rgb2hex(unsigned char r, unsigned char g, unsigned char b);
+uint32_t	get_fractal_color(t_fractal *fractal);
 
 /* MinilibX Utils*/
 void	init_canvas(t_canvas *canvas, char fractal_type_char);
