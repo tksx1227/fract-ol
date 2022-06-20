@@ -75,3 +75,13 @@ void	zoom_canvas(t_canvas *canvas, int button, t_comp cursor)
 	canvas->min.re += delta_left * direction;
 	canvas->min.im += delta_bottom * direction;
 }
+
+void	update_fractal_c(t_canvas *canvas)
+{
+	int	w;
+	int	h;
+
+	mlx_mouse_get_pos(canvas->mlx, canvas->win, &w, &h);
+	canvas->fractal->c.im = w / WIDTH;
+	canvas->fractal->c.re = h / HEIGHT;
+}

@@ -6,13 +6,13 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 22:07:08 by ttomori           #+#    #+#             */
-/*   Updated: 2022/06/20 19:04:41 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/06/21 00:33:06 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void		draw_mandelbrot_burningship_common(t_canvas *canvas);
+static void	draw_mandelbrot_burningship_common(t_canvas *canvas);
 
 void	my_mlx_pixel_put(t_canvas *canvas, int w, int h, int color)
 {
@@ -32,7 +32,6 @@ void	draw_julia(t_canvas *canvas)
 	uint32_t	color;
 
 	w = 0;
-	canvas->fractal->c = init_comp(DEFAULT_JULIA_C_RE, DEFAULT_JULIA_C_IM);
 	while (w < WIDTH)
 	{
 		h = 0;

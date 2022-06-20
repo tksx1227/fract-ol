@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <stdint.h>
+# include <stdbool.h>
 # include <limits.h>
 # include <math.h>
 # include <unistd.h>
@@ -47,6 +48,7 @@ typedef enum e_keys
 {
 	KEY_SCROLL_UP = 4,
 	KEY_SCROLL_DOWN = 5,
+	KEY_SPACE = 32,
 	KEY_ESC = 65307,
 	KEY_LEFT_ARROW = 65361,
 	KEY_UP_ARROW = 65362,
@@ -63,6 +65,7 @@ typedef struct s_comp
 typedef struct s_fractal
 {
 	int				max_iter;
+	bool			is_pressed_space_key;
 	t_comp			z;
 	t_comp			c;
 	t_fractal_type	type;
@@ -94,6 +97,7 @@ int			loop_hook(t_canvas *canvas);
 int			exit_canvas(t_canvas *canvas);
 void		zoom_canvas(t_canvas *canvas, int button, t_comp cursor);
 void		move_canvas(t_canvas *canvas, int keycode);
+void		update_fractal_c(t_canvas *canvas);
 
 /* Drawer */
 void		my_mlx_pixel_put(t_canvas *canvas, int w, int h, int color);
