@@ -56,6 +56,11 @@ void	draw_mandelbrot(t_canvas *canvas)
 	draw_mandelbrot_burningship_common(canvas);
 }
 
+void	draw_burningship(t_canvas *canvas)
+{
+	draw_mandelbrot_burningship_common(canvas);
+}
+
 static void	draw_mandelbrot_burningship_common(t_canvas *canvas)
 {
 	int			w;
