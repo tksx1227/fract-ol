@@ -65,7 +65,7 @@ typedef struct s_comp
 typedef struct s_fractal
 {
 	int				max_iter;
-	bool			is_pressed_space_key;
+	bool			is_julia_edit_mode;
 	t_comp			z;
 	t_comp			c;
 	t_fractal_type	type;

@@ -20,8 +20,8 @@ int	key_hook(int keycode, t_canvas *canvas)
 			keycode == KEY_RIGHT_ARROW || keycode == KEY_DOWN_ARROW)
 		move_canvas(canvas, keycode);
 	else if (canvas->fractal->type == JULIA && keycode == KEY_SPACE)
-		canvas->fractal->is_pressed_space_key = \
-		!canvas->fractal->is_pressed_space_key;
+		canvas->fractal->is_julia_edit_mode = \
+		!canvas->fractal->is_julia_edit_mode;
 	return (0);
 }
 
@@ -44,7 +44,7 @@ int	loop_hook(t_canvas *canvas)
 {
 	if (canvas->fractal->type == JULIA)
 	{
-		if (canvas->fractal->is_pressed_space_key)
+		if (canvas->fractal->is_julia_edit_mode)
 			update_fractal_c(canvas);
 		draw_julia(canvas);
 	}

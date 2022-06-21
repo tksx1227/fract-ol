@@ -80,7 +80,7 @@ static void	init_fractal(t_canvas *canvas, char type_char)
 	fractal->max_iter = DEFAULT_MAX_ITER;
 	fractal->z = init_comp(0.0, 0.0);
 	fractal->c = init_comp(DEFAULT_JULIA_C_RE, DEFAULT_JULIA_C_IM);
-	fractal->is_pressed_space_key = false;
+	fractal->is_julia_edit_mode = false;
 	if (type_char == '0')
 		fractal->type = JULIA;
 	else if (type_char == '1')
