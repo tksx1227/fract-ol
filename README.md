@@ -4,7 +4,7 @@ A program that creates beautiful graphical fractals.
 
 ## Description
 
-This program uses the screen drawing library [MiniLibX](https://harm-smits.github.io/42docs/libs/minilibx) to draw fractals.
+This program uses the screen drawing library MiniLibX to draw fractals.
 
 Valid fractals are the following three types of sets.
 
@@ -53,3 +53,9 @@ The actions that can be executed while drawing are:
 ### Burning ship set
 
 ![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/59915788/174651474-1e122565-131b-4af9-9bdf-8aeef24801a2.gif)
+
+## Links
+
+- MiniLibX's repository: [MiniLibX](https://github.com/42Paris/minilibx-linux.git)
+
+- MiniLibX's document: [MiniLibX - 42 Docs](https://harm-smits.github.io/42docs/libs/minilibx)
