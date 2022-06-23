@@ -23,6 +23,7 @@ DEPS	:= $(addprefix $(OBJDIR)/, $(FILES:.c=.d))
 
 CC		:= cc
 RM		:= rm -rf
+MLX		:= $(MLXDIR)/libmlx.a
 NAME	:= fractol
 FRACTOL	:= $(BINDIR)/fractol
 LIBS	:= mlx X11 Xext
@@ -33,6 +34,7 @@ ifeq ($(UNAME), Darwin)
 	LIBDIRS += /usr/X11R6/lib
 	INCDIRS += /opt/X11/include
 	FW := $(addprefix -framework , OpenGL AppKit)
+	CFLAGS	:= -MMD -MP
 else
 	LIBS += m bsd
 endif
@@ -41,14 +43,14 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) -c $< $(addprefix -L, $(LIBDIRS)) $(addprefix -l, $(LIBS)) $(addprefix -I, $(INCDIRS)) $(FW) -o $@
 
 .PHONY: all
-all: $(MLXDIR) $(BINDIR) $(OBJDIR) $(FRACTOL)
+all: $(MLX) $(BINDIR) $(OBJDIR) $(FRACTOL)
 
 .PHONY: $(NAME)
 $(NAME): all
 
 $(FRACTOL): $(OBJS)
 	@echo "\033[32mGenerating binary file...\033[0m"
-	$(CC) $^ $(addprefix -L, $(LIBDIRS)) $(addprefix -l, $(LIBS)) -o $@
+	$(CC) $(CFLAGS) $^ $(addprefix -L, $(LIBDIRS)) $(addprefix -l, $(LIBS)) -o $@
 
 $(OBJDIR):
 	@echo "\033[32mGenerating $(OBJDIR) directory...\033[0m"
@@ -58,23 +60,19 @@ $(BINDIR):
 	@echo "\033[32mGenerating $(BINDIR) directory...\033[0m"
 	mkdir -p $@
 
-$(MLXDIR):
-	@if [ ! -e $(MLXDIR) ]; then \
-		echo "\033[32mDownloading minilibx from GitHub...\033[0m" ; \
-		git clone https://github.com/42Paris/minilibx-linux.git $(MLXDIR) ; \
-		make -C $(MLXDIR) ; \
-	fi
+$(MLX):
+	make -C $(MLXDIR)
 
 .PHONY: clean
 clean:
 	@echo "\033[31mRemoving $(OBJDIR) directory...\033[0m"
+	make -C $(MLXDIR) clean
 	$(RM) $(OBJDIR)
 
 .PHONY: fclean
 fclean: clean
 	@echo "\033[31mRemoving $(BINDIR) and $(MLXDIR) directory...\033[0m"
 	$(RM) $(BINDIR)
-	$(RM) $(MLXDIR)
 
 .PHONY: re
 re: fclean all

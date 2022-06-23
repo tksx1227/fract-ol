@@ -51,11 +51,6 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# minilibx
-minilibx
-minilibx_linux
-minilibx_mac
-
 # binary dir
 bin
 
