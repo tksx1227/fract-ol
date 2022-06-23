@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 14:30:21 by ttomori           #+#    #+#             */
-/*   Updated: 2022/06/19 23:41:10 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/06/23 09:54:59 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	exit_canvas(t_canvas *canvas)
 {
+	mlx_destroy_image(canvas->mlx, canvas->img->img);
 	mlx_destroy_window(canvas->mlx, canvas->win);
+	mlx_destroy_display(canvas->mlx);
 	exit(0);
 }
 
