@@ -14,7 +14,13 @@ Valid fractals are the following three types of sets.
 
 ## Usage
 
-You can use the make command to clone MiniLibX and generate a binary file.
+Clone the submodule at the same time with the following command.
+
+```shell
+$ git clone --recursive https://github.com/tksx1227/fract-ol.git
+```
+
+You can use the make command to generate object files and a binary file.
 
 ```shell
 $ make
